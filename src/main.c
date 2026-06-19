@@ -1,5 +1,6 @@
 #include "include/main.h"
 #include "include/io.h"
+#include "include/write.h"
 
 void print_help(){
 
@@ -11,8 +12,19 @@ int main(int argc, char* argv[])
 {
     FILE_T* file = load_file(argv[1]);
     printf("length: %ld\n", file->length);
-    printf("filepath: %s\n", file->filepath);
-    printf("data: %X %X %X %X %X\n", file->data[0], file->data[1], file->data[2], file->data[3], file->data[4]);
+    printf("filepath: %s\n", file->file_path);
+    printf("data: ");
+    for (int i = 0; i<10;i++){
+        
+        if (i == 9){
+            printf(" %X \n", file->data[i]);
+        }
+        else{
+            printf(" %X ", file->data[i]);
+        }
+    }
     
+    printf("file type: %s\n", file->file_type);
+    write_to_file(file->data, "bddjdk.fasf", file->length);
     return 0;
 }
