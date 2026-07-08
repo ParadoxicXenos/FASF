@@ -1,3 +1,3 @@
-#ifndef REDUNDANCY_H;
-#define REDUNDANCY_H;
+#ifndef REDUNDANCY_H
+#define REDUNDANCY_H
 #endif
